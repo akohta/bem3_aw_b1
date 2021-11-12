@@ -58,7 +58,8 @@ The additional analysis examples are in the folder analysis_sample1 ~ analysis_s
 
 ## Analysis sample 1 (in the folder analysis_sample1)  
 
-This is the analysis result of focused beam scattering by the two layered sphere (silicone oil droplet containing air bubble).
+This is the analysis result of focused beam scattering by the two layered sphere (silicone oil droplet containing air bubble).  
+
 ![mesh 1](analysis_sample1/sphere_m2_image.png "mesh image of the object (analysis_sample1/sphere_m2_image.png)")  
 ![intensity distributions 1](analysis_sample1/I_example2.png "sound pressure intensity distributions (analysis_sample1/I_example2.png)")  
 ![xz_p.gif 1](analysis_sample1/xz_p.gif "instantaneous value of the p on y=0 plane (analysis_sample1/xz_p.gif)")![xy_p.gif 1](analysis_sample1/xy_p.gif "instantaneous value of the p on z=0 plane (analysis_sample1/xy_p.gif)")  
