@@ -2,7 +2,7 @@
 This is the three-dimensional acoustic wave scattering analysis program for arbitrary objects in a inviscid fluid. 
 This is based on boundary element method, the own developed numerical solution is used. 
 The radiation force acting on the object can be analyzed. 
-Intel Math Kernel Library and libpng are required. 
+Intel Math Kernel Library, Gnu Scientific Library and libpng are required. 
 Gmsh is used for create a mesh data of object. 
 The acoustic wave analysis program "multi_aw" is used for analyze incident field.
 
@@ -100,9 +100,10 @@ Please refer to the manual of Gmsh for detail of geometry file.
 ## References
 
 1. Intel Math Kernel Library [MKL](https://software.intel.com/mkl)  
-2. The official PNG reference library [libpng](http://www.libpng.org/pub/png/libpng.html)  
-3. Three-dimensional mesh generator [Gmsh](https://gmsh.info/)  
-4. The command-line driven graphing utility [gnuplot](http://www.gnuplot.info/)  
-5. The utilities for manipulating images [ImageMagick](https://imagemagick.org/)  
-6. The sound pressure analysis program [multi_aw](https://github.com/akohta/multi_aw/)  
-7. The sound wave scattering analysis program [aw_msp_ivf](https://github.com/akohta/aw_msp_ivf/)  
+2. GNU Scientific Library [GSL](https://www.gnu.org/software/gsl/)  
+3. The official PNG reference library [libpng](http://www.libpng.org/pub/png/libpng.html)  
+4. Three-dimensional mesh generator [Gmsh](https://gmsh.info/)  
+5. The command-line driven graphing utility [gnuplot](http://www.gnuplot.info/)  
+6. The utilities for manipulating images [ImageMagick](https://imagemagick.org/)  
+7. The sound pressure analysis program [multi_aw](https://github.com/akohta/multi_aw/)  
+8. The sound wave scattering analysis program [aw_msp_ivf](https://github.com/akohta/aw_msp_ivf/)  
