@@ -8,6 +8,7 @@ void read_dmda(int argc,char **argv,DMDA *ad)
   void read_mesh_data(char *msh_fn,DMDA *ad);
 
   filename_chk(argc,argv);
+  init_maw(&(ad->aw));      // multi_aw.h
   read_data_maw(&(ad->aw)); // multi_aw.h
   read_medium_data(argv[1],ad);
   read_mesh_data(argv[2],ad);
