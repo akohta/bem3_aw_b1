@@ -1,12 +1,12 @@
-# makefile for GNU C compiler
-CC     =gcc
-CFLAGS =-O3 -Wall
+# makefile for Intel compiler
+CC     =icx
+CFLAGS =-fast -Wall
 LDFLAGS=-lpng -lz -lgsl -lgslcblas
-MPFLAGS=-fopenmp
+MPFLAGS=-fiopenmp
 # link mkl lapack library, static linking 
-LDF_MKL =-Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl#mkl lapack link library (static linking) 
+LDF_MKL =-Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
 # mkl compile option
-COP_MKL =-DMKL_ILP64 -m64 -I${MKLROOT}/include
+COP_MKL =-DMKL_ILP64 -I"${MKLROOT}/include"
 SRCDIR1=d3b1_src
 SRCDIR2=maw_src
 SRCDIR3=com_src
