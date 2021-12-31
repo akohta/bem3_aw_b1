@@ -8,11 +8,12 @@ The acoustic wave analysis program "multi_aw" is used for analyze incident field
 
 ## Usage of example code  
 1. type 'make' command to compile.  
-   The executable aw_d3b1_bv_solver, example1.out, example2.out, example3.out are created. 
+   The executable aw_d3b1_bv_solver, example1.out, example2.out, example3.out, example4.out are created. 
    The executable aw_d3b1_bv_solver is the main solver of boundary integral equations. 
    The example1.out is the executable of source code example1.c, it shows a simplest example using "bem3_aw_b1". 
    The example2.out is the execubable of source code example2.c, it shows a example of sound pressure intensity analysis. 
-   The example3.out is the executable of source code example3.c, it shows a example of outputting the instantaneous value of sound pressure as an image.  
+   The example3.out is the executable of source code example3.c, it shows a example of outputting the instantaneous value of sound pressure as an image. 
+   The example4.out is the executable of source code example4.c, it shows a example of far-field intensity analysis.  
    
 2. type './aw_d3b1_bv_solver' with arguments of medium datafile name, mesh datafile name and output dafafile name.  
    For example, './aw_d3b1_bv_solver medium.txt sphere_m1_05z.msh ex.dat'. 
@@ -46,7 +47,13 @@ The acoustic wave analysis program "multi_aw" is used for analyze incident field
    The color bar is output as color_bar.png in the same folder. 
    The range of color bar in each cross section is output to the info.txt file (ex. xy_info.txt for z=0 plane). 
    The xz_p.gif and xy_p.gif are animated gifs that concatenate the png files created by using the shell script gif_animation.sh.  
-   
+
+6. type './example4.out' with an argument of datafile name output by aw_d3b1_bv_solver.  
+   For example, './example4.out ex.dat'. 
+   This executable calculates scattered field (sound puressure) intensity distributions in far-field and outputs them to text files. 
+   The I_example4.png is the visualization result of the intensity distributions, created by gnuplot script gscript_example4.plt. 
+   The I_example4_3d.png is the visualization result of the intensity distributions on a spherical surface, created by gnuplot script gscript_example4_3d.plt.  
+
 Please see d3b1_src/bem3_aw_b1.h for detail of functions. The main parts of the code are parallelized by using OpenMP. 
 The number of threads is controlled by the environment variable OMP_NUM_THREADS. 
 The additional analysis examples are in the folder analysis_sample1 ~ analysis_sample2.
@@ -54,7 +61,7 @@ The additional analysis examples are in the folder analysis_sample1 ~ analysis_s
 ![mesh 0](sphere_m1_05z_image.png "mesh image of the object (sphere_m1_05z_image.png)")  
 ![intensity distributions 0](I_example2.png "sound pressure intensity distributions (I_example2.png)")  
 ![xz_p.gif](xz_p.gif "instantaneous value of the p on y=0 plane (xz_p.gif)")![xy_p.gif](xy_p.gif "instantaneous value of the p on z=0 plane (xy_p.gif)")  
-
+![far-field](I_example4_3d.png "far-field intensity distribution (I_example4_3d.png)")  
 
 ## Analysis sample 1 (in the folder analysis_sample1)  
 
@@ -92,7 +99,7 @@ I recommend using quadrangular element for reduce required memory.
 The samples of mesh datafile are in the folder mesh_sample. 
 The file with extension .geo is the Gmsh geometry file. 
 The file with extension .msh is the mesh datafile created by Gmsh geometry file. 
-These mesh files are created by the command 'gmsh -2 -tol 1.0e-15 xxxx.geo' in command line (xxxx.geo is a geometry file). 
+These mesh files are created by the command 'gmsh -2 -tol 1.0e-15 -format msh2 xxxx.geo' in command line (xxxx.geo is a geometry file). 
 The domain number (Physical Surface) 99 is assigned to the open region in Gmsh geometry file, because Gmsh can't use the number 0 (assigned to open region in the code). 
 Please refer to the manual of Gmsh for detail of geometry file.  
 

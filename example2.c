@@ -6,16 +6,31 @@ int main(int argc,char *argv[])
   DMDA ad;
   FILE *fp1;
   double complex p,v[3];
-  double rang,dr,r[3],*ip;
-  int max,i,j,type;
+  double rang,dr,r[3],*ip,mf;
+  int max,i,j,type,sn;
+
+  if(argc!=2 && argc!=5){
+    printf("Usage : %s datafile_name [sampling_number multplier_factor type](optional)\n",argv[0]);
+    printf("default sampling number 200, multiplier factor 3 (range is -3*lambda0 to 3*lambda0), type 1 (9 or 7 point GaussLegendre)\n");
+    exit(0);
+  }
+  else if(argc==5){
+    sn=atoi(argv[2]);
+    mf=atof(argv[3]);
+    type=atoi(argv[4]);
+  }
+  else{
+    sn=200;
+    mf=3.0;
+    type=1;
+  }
 
   dat_read_dmda(argv[1],&ad); // read datafile 
-  print_dmda(&ad);       // print data 
+  print_dmda(&ad);            // print data 
 
-  max=200;
-  rang=3.0*ad.aw.lambda0;
+  max=sn;
+  rang=mf*ad.aw.lambda0;
   dr=rang*2.0/(double)(max-1);
-  type=1; // type setting for total_field_amsp()
   
   ip=(double *)m_alloc2(max,sizeof(double),"exampl2.c,ip");
   
@@ -29,7 +44,7 @@ int main(int argc,char *argv[])
     for(j=0;j<max;j++){
       r[2]=-rang+(double)j*dr;
       pv_t_dmda(&p,v,r,type,&ad); // total field
-      ip[j]=creal(p*conj(p)); // |p|^2
+      ip[j]=creal(p*conj(p));     // |p|^2
     } // end parallel
     for(j=0;j<max;j++){
       r[2]=-rang+(double)j*dr;
