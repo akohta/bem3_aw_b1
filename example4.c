@@ -47,7 +47,7 @@ int main(int argc,char *argv[])
     r[0]=0.0;
     r[1]=-ra*sin(th);
     r[2]= ra*cos(th);
-    pv_s_dmda(&p,v,r,type,&ad); // scattered field
+    pv_s_dbieq_dmda(&p,v,r,type,&ad); // scattered field
     ip[i]=creal(p*conj(p));
     if(ip[i]>ipmax) ipmax=ip[i];
   }
@@ -68,7 +68,7 @@ int main(int argc,char *argv[])
     r[0]=ra*sin(th);
     r[1]=0.0;
     r[2]=ra*cos(th);
-    pv_s_dmda(&p,v,r,type,&ad); // scattered field
+    pv_s_dbieq_dmda(&p,v,r,type,&ad); // scattered field
     ip[i]=creal(p*conj(p));
     if(ip[i]>ipmax) ipmax=ip[i];
   }
@@ -89,7 +89,7 @@ int main(int argc,char *argv[])
     r[0]=ra*cos(th);
     r[1]=ra*sin(th);
     r[2]=0.0;
-    pv_s_dmda(&p,v,r,type,&ad); // scattered field
+    pv_s_dbieq_dmda(&p,v,r,type,&ad); // scattered field
     ip[i]=creal(p*conj(p));
     if(ip[i]>ipmax) ipmax=ip[i];
   }
@@ -113,7 +113,7 @@ int main(int argc,char *argv[])
       r[0]=ra*sin(ph)*cos(th);
       r[1]=ra*sin(ph)*sin(th);
       r[2]=ra*cos(ph);
-      pv_s_dmda(&p,v,r,type,&ad); // scattered field
+      pv_s_dbieq_dmda(&p,v,r,type,&ad); // scattered field
       ip[j]=creal(p*conj(p));
     }
     for(j=0;j<=sn;j++){

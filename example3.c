@@ -66,7 +66,7 @@ int main(int argc,char *argv[])
   id.m=sn;                             // sampling number 
   id.rang=mf*ad.aw.lambda0;            // range of sampling
   id.ts=40;                            // time step per cycle
-  id.type=ty;                          // type setting for total_field_amsp()
+  id.type=ty;                          // type setting 
   
   make_directory(id.dir_name);
 
